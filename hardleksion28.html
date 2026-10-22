@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add and remove shapes</title>
+  <style>
+    #shapes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .shape {
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+    }
+
+    .circle {
+      background: tomato;
+      border-radius: 50%;
+    }
+
+    .rectangle {
+      width: 120px;
+      background: steelblue;
+    }
+
+    .triangle {
+      background: seagreen;
+
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+  </style>
+</head>
+<body>
+
+  <button id="addCircle">Add circle</button>
+  <button id="addRectangle">Add rectangle</button>
+  <button id="addTriangle">Add triangle</button>
+
+  <div id="shapes"></div>
+
+  <script>
+    const container = document.getElementById("shapes");
+
+    function addShape(type) {
+      const shape = document.createElement("div");
+      shape.classList.add("shape", type);
+
+      shape.addEventListener("click", function () {
+        shape.remove();
+      });
+
+      container.appendChild(shape);
+    }
+
+    document.getElementById("addCircle").addEventListener("click", function () {
+      addShape("circle");
+    });
+    document.getElementById("addRectangle").addEventListener("click", function () {
+      addShape("rectangle");
+    });
+
+    document.getElementById("addTriangle").addEventListener("click", function () {
+      addShape("triangle");
+    });
+  </script>
+
+</body>
+</html>
