@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add a CSS class</title>
+  <style>
+    .highlight {
+      background-color: yellow;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <p id="myText">Click the button to highlight this text.</p>
+
+  <button id="classBtn">Highlight</button>
+
+  <script>
+    const text = document.getElementById("myText");
+    const button = document.getElementById("classBtn");
+
+    button.addEventListener("click", function () {
+      text.classList.add("highlight");
+    });
+  </script>
+
+</body>
+</html>
